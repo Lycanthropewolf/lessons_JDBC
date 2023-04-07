@@ -51,6 +51,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        System.out.println(employee);
         return employee;
     }
 
@@ -74,7 +75,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
             e.printStackTrace();
         }
 
-
+        System.out.println(employees);
         return employees;
     }
 
@@ -93,6 +94,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        System.out.println(employee);
     }
 
     @Override
@@ -105,5 +107,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        System.out.println(getById(id));
     }
 }
