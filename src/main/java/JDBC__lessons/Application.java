@@ -4,30 +4,26 @@ import java.sql.*;
 
 public class Application {
     public static void main(String[] args) throws SQLException {
-        String query = "SELECT * FROM employee WHERE id= ?";
+        final String url = "jdbc:postgresql://localhost:5433/mybase";
+        final String user = "postgres";
+        final String passvord = "cg7pdrpp";
+        try (final Connection connection = DriverManager.getConnection(url, user, passvord);
+             PreparedStatement statement = connection.prepareStatement("" + "SELECT * FROM employee WHERE id=(?)")) {
+            statement.setInt(1, 4);
+            final ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()){
+                String name="Name: "+resultSet.getString("first_name");
+                String surname="Surname: "+resultSet.getString("last_name");
+                String gender="Gender: "+resultSet.getString("gender");
+                int age=resultSet.getInt(5);
 
-        try (Connection connection = getConnection()){
-             PreparedStatement statement=connection.prepareStatement(query);
-             statement.setInt(1,1);
-             ResultSet resultSet = statement.executeQuery();
-             while (resultSet.next()) {
-                int id = resultSet.getInt(1);
-                System.out.println("id = "+id);
-                String name = resultSet.getString(2);
-                System.out.println("name = "+name);
+                System.out.println(name);
+                System.out.println(surname);
+                System.out.println(gender);
+                System.out.println(age);
+
             }
         }
 
     }
-
-
-
-    private static Connection getConnection() throws SQLException {
-        final String url = "jdbc:postgresql://localhost:5433/mybase";
-        final String user = "postgres";
-        final String passvord = "cg7pdrpp";
-        return DriverManager.getConnection(url, user, passvord);
-    }
-
-
 }
