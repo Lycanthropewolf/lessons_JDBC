@@ -14,7 +14,7 @@ public class Application {
         Employee employee = new Employee(12, "ffef", "fewfw", "wfwf", 52, city);
 
 
-        employeeDao.getById(3);
+        employeeDao.getById(4);
         System.out.println();
         employeeDao.getAllEmployee();
         System.out.println();
