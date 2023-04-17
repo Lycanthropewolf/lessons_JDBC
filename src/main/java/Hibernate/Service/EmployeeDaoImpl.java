@@ -29,11 +29,11 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
     @Override
     public List<Employee> getAllEmployee() {
-        try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
-            return session.createQuery("FROM Employee").list();
-        }
-
+        List<Employee> users = (List<Employee>) HibernateSessionFactoryUtil.
+                getSessionFactory().openSession().createQuery("From Employee").list();
+        return users;
     }
+
 
     @Override
     public void updateEmployee(Employee employee, int id) {
