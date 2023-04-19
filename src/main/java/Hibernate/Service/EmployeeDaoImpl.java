@@ -30,7 +30,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
     @Override
     public List<Employee> getAllEmployee() {
         List<Employee> users = (List<Employee>) HibernateSessionFactoryUtil.
-                getSessionFactory().openSession().createQuery("From Employee").list();
+                getSessionFactory().openSession().createQuery("From Employee ").list();
         return users;
     }
 

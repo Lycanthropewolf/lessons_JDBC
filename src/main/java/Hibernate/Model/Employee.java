@@ -20,9 +20,9 @@ public class Employee {
     @Column(name = "age")
     private int age;
     @Column(name = "city_id")
-    private int city;
+    private Integer city;
 
-    public Employee(int id, String first_name, String last_name, String gender, int age, int city) {
+    public Employee(int id, String first_name, String last_name, String gender, int age, Integer city) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -78,7 +78,7 @@ public class Employee {
         return city;
     }
 
-    public void setCity(int city) {
+    public void setCity(Integer city) {
         this.city = city;
     }
 

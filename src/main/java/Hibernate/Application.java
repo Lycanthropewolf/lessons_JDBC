@@ -11,7 +11,7 @@ public class Application {
         Employee employee = new Employee(134, "Denis", "Sergeev", "male", 56, 3);
         EmployeeDao employeeDao = new EmployeeDaoImpl();
 
-        System.out.println(employeeDao.getById(2));
+       /* System.out.println(employeeDao.getById(2));*/
         List<Employee> list=employeeDao.getAllEmployee();
         for (Employee employee1: list){
             System.out.println(employee1);
