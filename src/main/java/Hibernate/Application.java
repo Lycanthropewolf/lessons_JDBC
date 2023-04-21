@@ -14,9 +14,10 @@ public class Application {
     public static void main(String[] args) {
         City city=new City(5,"Tomsk",new ArrayList<>());
         CityDao cityDao=new CityDaoImpl();
-        Employee employee = new Employee(13, "Denis", "Sergeev", "male", 56, city);
+        Employee employee = new Employee(13, "Denis", "Sergeev", "male", 56, null);
         EmployeeDao employeeDao = new EmployeeDaoImpl();
         employeeDao.deleteEmployee(employee);
+        employeeDao.add(employee);
         /* System.out.println(employeeDao.getById(2));*/
         List<Employee> list = employeeDao.getAllEmployee();
         for (Employee employee1 : list) {
