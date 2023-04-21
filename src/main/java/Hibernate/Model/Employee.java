@@ -1,7 +1,5 @@
 package Hibernate.Model;
 
-import JDBC__lessons.Model.City;
-
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -19,10 +17,11 @@ public class Employee {
     private String gender;
     @Column(name = "age")
     private int age;
-    @Column(name = "city_id")
-    private Integer city;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "city_id")
+    private City city;
 
-    public Employee(int id, String first_name, String last_name, String gender, int age, Integer city) {
+    public Employee(int id, String first_name, String last_name, String gender, int age, City city) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -74,11 +73,11 @@ public class Employee {
         this.age = age;
     }
 
-    public int getCity() {
+    public City getCity() {
         return city;
     }
 
-    public void setCity(Integer city) {
+    public void setCity(City city) {
         this.city = city;
     }
 
