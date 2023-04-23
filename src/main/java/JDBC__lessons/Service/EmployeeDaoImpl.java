@@ -22,7 +22,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
             statement.setString(3, employee.getLast_name());
             statement.setString(4, employee.getGender());
             statement.setInt(5, employee.getAge());
-            statement.setInt(6, employee.getCity().getCity_id());
+            statement.setInt(6, employee.getCity().getCityId());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -88,7 +88,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
             statement.setString(2, employee.getLast_name());
             statement.setString(3, employee.getGender());
             statement.setInt(4, employee.getAge());
-            statement.setInt(5, employee.getCity().getCity_id());
+            statement.setInt(5, employee.getCity().getCityId());
             statement.setInt(6, id);
             statement.executeUpdate();
         } catch (SQLException e) {
