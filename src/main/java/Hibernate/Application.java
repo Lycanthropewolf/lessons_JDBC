@@ -30,6 +30,9 @@ public class Application {
         /* System.out.println(employeeDao.getById(2));*/
 
         cityDao.add(city);
+        System.out.println();
+        cityDao.getById(5);
+        System.out.println();
         List<City>listCity=cityDao.getAllCity();
         for (City city1: listCity){
             System.out.println(city1);

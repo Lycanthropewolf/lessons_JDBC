@@ -12,7 +12,8 @@ public class CityDaoImpl implements CityDao {
     public City add(City city) {
         try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            session.persist(city);
+            City en = (City) session.merge(city);
+            session.persist(en);
             transaction.commit();
         }
         return city;
@@ -33,6 +34,7 @@ public class CityDaoImpl implements CityDao {
         }
 
     }
+
 
     @Override
     public City updateCity(City city) {
